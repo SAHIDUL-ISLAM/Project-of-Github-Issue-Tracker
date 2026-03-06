@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Issue Tracker</title>
+    <!-- google-font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#E4E4E7]">
+    <div class="login-container flex justify-center items-center h-[100vh] ">
+        <fieldset class="fieldset border-base-300 rounded-box w-sm border p-4 bg-white">
+        <div class="login-head text-center">
+            <img class="mx-auto pb-[10px]" src="./assets/github-logo.png" alt="logo">
+            <h1 class="font-bold text-[24px]">GitHub Issues Tracker</h1>
+            <p class="text-[#64748B] pb-[10px] text-[16px]">Sign in to manage your issues</p>
+        </div>
+        <label class="label text-black font-bold text-[16px]">Username</label>
+        <input type="email" class="input w-full" placeholder="Enter Username" />
+
+        <label class="label text-black font-bold text-[16px]">Password</label>
+        <input type="password" class="input w-full" placeholder="Enter Password" />
+
+        <button class="btn bg-[#4A00FF] text-white font-bold mt-4 text-[16px]">Sign In</button>
+        <div class="flex items-center before:flex-1 before:border-t before:border-gray-200 before:mr-4 after:flex-1 after:border-t after:border-gray-200 after:ml-4 text-gray-500">
+        <span>OR</span>
+        </div>
+        <div class="login-demo-content text-center  text-[16px]">
+            <p>Demo Credentials:</p>
+            <div class="login-demo bg-[#E4E4E7] rounded-md p-[12px]">
+                <h3><span class="font-bold">Username:</span> admin</h3> 
+                <h3><span class="font-bold">Password: </span> admin123</h3>   
+            </div>
+        </div>
+        </fieldset>
+    </div>
+</body>
+</html>
