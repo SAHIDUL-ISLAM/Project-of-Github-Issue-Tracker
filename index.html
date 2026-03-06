@@ -25,24 +25,26 @@
             <h1 class="font-bold text-[24px]">GitHub Issues Tracker</h1>
             <p class="text-[#64748B] pb-[10px] text-[16px]">Sign in to manage your issues</p>
         </div>
-        <label class="label text-black font-bold text-[16px]">Username</label>
-        <input type="email" class="input w-full" placeholder="Enter Username" />
+            <label class="label text-black font-bold text-[16px]">Username</label>
+            <input id="login-username" type="text" class="input w-full" placeholder="Enter Username" />
+            <p id="result"></p>
 
-        <label class="label text-black font-bold text-[16px]">Password</label>
-        <input type="password" class="input w-full" placeholder="Enter Password" />
+            <label class="label text-black font-bold text-[16px]">Password</label>
+            <input id="login-password" type="password" class="input w-full" placeholder="Enter Password" />
 
-        <button class="btn bg-[#4A00FF] text-white font-bold mt-4 text-[16px]">Sign In</button>
-        <div class="flex items-center before:flex-1 before:border-t before:border-gray-200 before:mr-4 after:flex-1 after:border-t after:border-gray-200 after:ml-4 text-gray-500">
-        <span>OR</span>
-        </div>
-        <div class="login-demo-content text-center  text-[16px]">
-            <p>Demo Credentials:</p>
-            <div class="login-demo bg-[#E4E4E7] rounded-md p-[12px]">
-                <h3><span class="font-bold">Username:</span> admin</h3> 
-                <h3><span class="font-bold">Password: </span> admin123</h3>   
+            <button id="login-btn" class="btn bg-[#4A00FF] text-white font-bold mt-4 text-[16px]">Sign In</button>
+            <div class="flex items-center before:flex-1 before:border-t before:border-gray-200 before:mr-4 after:flex-1 after:border-t after:border-gray-200 after:ml-4 text-gray-500">
+            <span>OR</span>
             </div>
-        </div>
+            <div class="login-demo-content text-center  text-[16px]">
+                <p>Demo Credentials:</p>
+                <div class="login-demo bg-[#E4E4E7] rounded-md p-[12px]">
+                    <h3><span class="font-bold">Username:</span> admin</h3> 
+                    <h3><span class="font-bold">Password: </span> admin123</h3>   
+                </div>
+            </div>
         </fieldset>
     </div>
+<script src="script.js"></script>
 </body>
 </html>
