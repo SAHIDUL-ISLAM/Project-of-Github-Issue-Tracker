@@ -8,16 +8,17 @@ document.getElementById("login-btn").addEventListener("click", function(){
     const loginPassword = passwordInput.value;
 
     // match username and password
-    function getMessage(){
+
         if(loginUsername != "admin"){
-            console.log("Enter 'admin'");
+            const enterAdmin = document.getElementById('enter-admin');
+            enterAdmin.innerText = "Default: admin";
             return;
         }else if(loginPassword != "admin123"){
-            console.log("Use pass: admin123");
+            const enterPassword = document.getElementById("enter-password");
+            enterPassword.innerText = "Default: admin123";
             return;
         }else{
             window.location.assign("home.html");
         }
-    }
-    document.getElementById("result").textContent= getMessage();
+
 })
