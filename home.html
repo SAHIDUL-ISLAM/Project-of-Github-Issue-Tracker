@@ -18,10 +18,10 @@
     </style>
 </head>
 <body class="bg-[#E4E4E7]">
-    <header class="navbar bg-base-100 shadow-sm flex justify-between">
+    <header class="navbar flex-col gap-2 bg-base-100 shadow-sm sm:flex-row justify-between ">
         <div class="left-section flex gap-2 items-center">
             <img class="w-[10%]" src="./assets/github-logo.png" alt="">
-            <h1 class="font-bold text-[24px]">GitHub Issues Tracker</h1>
+            <h1 class="font-bold text-[20px] sm:text-[24px]">GitHub Issues Tracker</h1>
         </div>
         <div class="right-section flex justify-center gap-2">
             <label class="input">
@@ -45,13 +45,13 @@
     <main class="max-w-[1110px] m-auto pt-[60px]">
         <section class="tab-section">
             <div class="navbar bg-base-100 shadow-sm rounded space-x-2">
-                <a id="" onclick="allBtnTab" class="btn btn-primary text-xl">All</a>
-                <a class="btn text-xl">Open</a>
-                <a class="btn text-xl">Closed</a>
+                <a id="" onclick="loadAllData()" class="btn btn-primary text-md">All</a>
+                <a class="btn text-md">Open</a>
+                <a class="btn text-md">Closed</a>
             </div>
         </section>
         <section class="container pt-[16px]">
-            <div class="card-counter bg-base-100 shadow-sm rounded flex justify-between p-4">
+            <div class="card-counter bg-base-100 shadow-sm rounded flex flex-col items-center gap-3 sm:flex-row justify-between p-4">
                 <div class="card-counter-left flex items-center gap-3">
                     <img src="./assets/Aperture.png" alt="">
                     <div class="left-text-content">
