@@ -42,20 +42,20 @@
            <button class="btn btn-primary">+ New Issue</button>
         </div>
     </header>
-    <main class="max-w-[1110px] m-auto pt-[60px]">
-        <section class="tab-section">
-            <div class="navbar bg-base-100 shadow-sm rounded space-x-2">
-                <a id="" onclick="loadAllData()" class="btn btn-primary text-md">All</a>
-                <a class="btn text-md">Open</a>
-                <a class="btn text-md">Closed</a>
-            </div>
-        </section>
+    <main class="max-w-[1110px] m-auto pt-[30px]">
+<section class="tab-section">
+    <div id="tab-container" class="navbar bg-base-100 shadow-sm rounded space-x-2">
+        <a id="btn-all" onclick="loadAllData()" class="btn btn-primary text-md tab-btn">All</a>
+        <a id="btn-open" onclick="loadOpenData()" class="btn text-md tab-btn">Open</a>
+        <a id="btn-closed" onclick="loadClosedData()" class="btn text-md tab-btn">Closed</a>
+    </div>
+</section>
         <section class="container pt-[16px]">
             <div class="card-counter bg-base-100 shadow-sm rounded flex flex-col items-center gap-3 sm:flex-row justify-between p-4">
                 <div class="card-counter-left flex items-center gap-3">
                     <img src="./assets/Aperture.png" alt="">
                     <div class="left-text-content">
-                        <h2 class="font-bold">50 Issues</h2>
+                        <h2 class="font-bold"><span id="open-count"></span> Issues</h2>
                         <p>Track and manage your project issues</p>
                     </div>
                 </div>
@@ -66,9 +66,52 @@
                     <p>Closed</p>
                 </div>
             </div>
-
+        </section>
+        <section class="card-section bg-[#FBFBFB] p-4">
+            <div id="all-cards-container" class="all-cards-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- <div class="card rounded shadow-md bg-white p-3 space-y-3">
+                    <div class="card-top flex justify-between">
+                        <img src="./assets/Open-Status.png" alt="">
+                        <p class="px-4 py-1 bg-orange-400 rounded-full">HIGH</p>
+                    </div>
+                    <h2 class="font-bold">Fix navigation menu on mobile devices</h2>
+                    <p class="line-clamp-2">The navigation menu doesn't collapse properly on mobile devices</p>
+                    <div class="bage flex gap-2">
+                        <p class="px-4 py-1 bg-red-300 rounded-full">BUG</p>
+                        <p class="px-4 py-1 bg-yellow-200 rounded-full">HELP Wanted</p>
+                    </div>
+                    <hr>
+                    <p>#1 by john_doe</p>
+                    <p>1/15/2026</p>
+                </div> -->
+            </div>
+            <div id="loadingSpinner" class=" hidden flex justify-center items-center">
+                <span class="loading loading-spinner loading-xl"></span>
+            </div>
+        </section>
+        
+        <!-- open data  -->
+            <section class="card-section bg-[#FBFBFB] p-4">
+            <div id="open-cards-container" class="open-cards-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- dynamic code  -->
+            </div>
+            <div id="loadingSpinner" class=" hidden flex justify-center items-center">
+                <span class="loading loading-spinner loading-xl"></span>
+            </div>
         </section>
     </main>
+    <!-- <dialog id="issue_modal" class="modal">
+        <div class="modal-box">
+            <h3 id="modal-title" class="font-bold text-lg"></h3>
+            <div id="modal-body" class="py-4 space-y-3">
+                </div>
+            <div class="modal-action">
+            <form method="dialog">
+                <button class="btn">Close</button>
+            </form>
+            </div>
+        </div>
+        </dialog> -->
     <script src="./home.js"></script>
 </body>
 </html>
