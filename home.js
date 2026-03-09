@@ -59,15 +59,23 @@ async function showIssueDetails(id) {
     const issue = result.data;
 
     // Set content in the modal
-    // document.getElementById("modal-title").innerText = issue.title;
-    // document.getElementById("modal-body").innerHTML = `
-    //     <p><strong>Description:</strong> ${issue.description}</p>
-    //     <p><strong>Author:</strong> ${issue.author}</p>
-    //     <p><strong>Status:</strong> <span class="badge ${issue.status === 'open' ? 'badge-success' : 'bg-purple-600 text-white'}">${issue.status}</span></p>
-    //     <p><strong>Priority:</strong> ${issue.priority}</p>
-    //     <p><strong>Labels:</strong> ${issue.labels.join(', ')}</p>
-    //     <p><strong>Date:</strong> ${issue.createdAt}</p>
-    // `;
+    document.getElementById("modal-title").innerText = issue.title;
+    document.getElementById("modal-body").innerHTML = `
+        <div class="flex text-gray-400 gap-3">
+            <p><span class="badge ${issue.status === 'open' ? 'badge-success text-white' : 'bg-purple-600 text-white'}">${issue.status}</span></p> .
+            <p>Opended by ${issue.author}</p> .
+            <p>${issue.createdAt}</p>        
+        </div>
+        <div class="bage flex gap-2">
+            ${issue.labels[0] ? `<p class="px-2 py-1 bg-red-100 rounded-full text-xs">${issue.labels[0]}</p>` : ''}
+            ${issue.labels[1] ? `<p class="px-2 py-1 bg-yellow-100 rounded-full text-xs">${issue.labels[1]}</p>` : ''}
+        </div>
+        <p>${issue.description}</p>
+        <div class="p-4 bg-slate-100 rounded-md flex justify-between">
+            <p>Assignee: <br> <span class="font-bold">${issue.author}</span></p>
+            <p>Priority: <br> <span class="bg-orange-100 rounded-full px-4 py-1"> ${issue.priority}</span></p>
+        </div>
+    `;
 
     // Show the modal
     document.getElementById("issue_modal").showModal();
