@@ -117,3 +117,21 @@ function displayCards(cards) {
 }
 
 loadAllData();
+
+
+document.getElementById("btn-search").addEventListener("click", () => {
+    const input = document.getElementById("input-search");
+    const searchValue = input.value.trim().toLowerCase();
+
+    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+        .then((res) => res.json())
+        .then((result) => {
+            const allIssues = result.data;
+            const filteredResults = allIssues.filter((issue) => 
+                issue.title.toLowerCase().includes(searchValue)
+            );
+            document.getElementById("open-count").innerText = filteredResults.length;
+
+            displayCards(filteredResults);
+        });
+});
