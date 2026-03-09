@@ -108,7 +108,7 @@ function displayCards(cards) {
             </div>
             <hr>
             <div class="flex justify-between text-xs text-gray-500">
-                <p># by ${issue.author}</p>
+                <p># ${issue.id} by ${issue.author}</p>
                 <p>${issue.createdAt}</p>
             </div>`;
 
