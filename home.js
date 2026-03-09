@@ -1,7 +1,6 @@
 const allCardsContainer = document.getElementById("all-cards-container");
 const loadingSpinner = document.getElementById("loadingSpinner");
 
-// Helper function to manage active button styles
 function setActiveButton(activeId) {
     const buttons = document.querySelectorAll('.tab-btn');
     buttons.forEach(btn => {
@@ -19,46 +18,48 @@ function hideLoading(){
     loadingSpinner.classList.add("hidden");
 }
 
-// Requirement: Load All Data
+// All Data
 async function loadAllData(){
     setActiveButton('btn-all');
     showLoading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
+    document.getElementById("open-count").innerText = data.data.length;
     hideLoading();
     displayCards(data.data);
 }
 
-// Requirement: Load Open Data
+// Open Data
 async function loadOpenData(){
     setActiveButton('btn-open');
     showLoading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     const openIssues = data.data.filter(item => item.status === "open");
+    document.getElementById("open-count").innerText = openIssues.length;
     hideLoading();
     displayCards(openIssues);
 }
 
-
+//close data
 async function loadClosedData(){
     setActiveButton('btn-closed');
     showLoading();
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     const closedIssues = data.data.filter(item => item.status === "closed");
+    document.getElementById("open-count").innerText = closedIssues.length;
     hideLoading();
     displayCards(closedIssues);
 }
 
 
 async function showIssueDetails(id) {
-    // API endpoint for single issue: https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
     const result = await res.json();
     const issue = result.data;
 
-    // Set content in the modal
+
     document.getElementById("modal-title").innerText = issue.title;
     document.getElementById("modal-body").innerHTML = `
         <div class="flex text-gray-400 gap-3">
@@ -71,17 +72,16 @@ async function showIssueDetails(id) {
             ${issue.labels[1] ? `<p class="px-2 py-1 bg-yellow-100 rounded-full text-xs">${issue.labels[1]}</p>` : ''}
         </div>
         <p>${issue.description}</p>
-        <div class="p-4 bg-slate-100 rounded-md flex justify-between">
+        <div class="p-4 bg-slate-100 rounded-md flex justify-between items-center">
             <p>Assignee: <br> <span class="font-bold">${issue.author}</span></p>
             <p>Priority: <br> <span class="bg-orange-100 rounded-full px-4 py-1"> ${issue.priority}</span></p>
         </div>
     `;
 
-    // Show the modal
     document.getElementById("issue_modal").showModal();
 }
 
-// Update your existing displayCards function to add the click listener
+
 function displayCards(cards) {
     allCardsContainer.innerHTML = "";
     
@@ -89,10 +89,10 @@ function displayCards(cards) {
         const borderColor = issue.status === "open" ? "border-t-4 border-green-500" : "border-t-4 border-purple-600";
         
         const Card = document.createElement("div");
-        // Add 'cursor-pointer' to show it's clickable
+  
         Card.className = `card rounded shadow-md bg-white p-3 space-y-3 cursor-pointer ${borderColor}`;
         
-        // Requirement: Clicking on an issue card will open a modal
+
         Card.onclick = () => showIssueDetails(issue.id);
 
         Card.innerHTML = `
